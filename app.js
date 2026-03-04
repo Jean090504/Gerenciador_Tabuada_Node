@@ -24,16 +24,19 @@ entradaDados.question('Digite o número inicial do contador: ', function (contad
             entradaDados.question('Digite o número final da tabuada: ', function (tabuadaFinal) {
                 let resultadoValidado = tratativas.validarEntrada(contadorInicial, contadorFinal, tabuadaInicial, tabuadaFinal)
 
+                //Verificar o resultado da validação e, caso seja verdadeiro, realizar o cálculo da tabuada, caso contrário, exibir a mensagem de erro
                 if(resultadoValidado === true){
                     let resultadoTabuada = calculos.calcularTabuada(Number(contadorInicial), Number(contadorFinal), Number(tabuadaInicial), Number(tabuadaFinal))
-                if (resultadoTabuada) {
+                
+                    //Se o resultado do cálculo da tabuada for verdadeiro, exibir a mensagem de sucesso, caso contrário, exibir a mensagem de erro
+                    if (resultadoTabuada) {
                     console.log('Tabuadas geradas com sucesso!')
                     console.log('Obrigado por utilizar o sistema de tabuada!')
                     entradaDados.close()
-                } else {
+                    } else {
                     console.log('Houve um erro ao gerar as tabuadas.')
                     entradaDados.close()
-                }
+                    }
                 } else {
                     console.log(resultadoValidado) 
                     entradaDados.close()
